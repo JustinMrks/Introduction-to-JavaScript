@@ -1,25 +1,42 @@
 /************************************************************** Task 1: Warm-up! **************************************************************/
 //Task a: declare a variable called votingAge, console log true if age > 18 (no function required)
 
+const votingAge = 19;
 
+if(votingAge >= 18){
+    console.log("true")
+}
+else{
+    console.log("false")
+}
 
 
 
 //Task b: declare a variable and then use a conditional to change the value of that variable based on the value assigned to a second variable (no function required)
 
+let max = "puppy";
+const older = "dog";
+max = older;
+console.log("Max is a", max);
 
 
 
 
 //Task c: Convert string ("1999") to integer (1999)  (no function required) // hint look up the Number method
 
+let year = "1999";
+console.log(Number(year));
 
 
 
 
 //Task d: Write a function to multiply a*b 
 
+function math(a,b){
+    console.log(a*b);
+}
 
+math(7,3);
 
 
 
@@ -28,8 +45,11 @@
 //write a function that takes your age and returns it to you in dog years - they say that 1 human year is equal to seven dog years 
 
 
+function dogYears(age){
+    console.log(age*7)
+}
 
-
+dogYears(21);
 
 /************************************************************** Task 3 **************************************************************/
 //Dog feeder 
@@ -51,6 +71,48 @@
   
 
 
+function results(final){
+    console.log("Your dog needs",final,"lbs of food")
+}
+
+function adult(weight){
+    if (weight <= 5){
+        results(weight * .05);
+    }
+    else if (weight <= 10){
+        results(weight * .04);
+    }
+    else if (weight <=15){
+        results(weight * .03);
+    }
+    else {
+        results(weight * .02);
+    }
+}
+
+function pup(age,weight){
+    if (age >= .166666 && age <= .3333333){
+        results(weight * .1);
+    }
+    if (age > .3333333 && age <=.583333){
+        results(weight * .05);
+    }
+    else {
+        results(weight * .04);
+    }
+}
+
+function foodCalc(age,weight){
+    if (age < 1) {
+        pup(age,weight);
+    }
+    else{
+        adult(weight);
+    }
+}
+
+foodCalc(4,105);
+
 
 
 /************************************************************** Task 4 **************************************************************/
@@ -60,20 +122,68 @@
 // use math.random to determine the computers choice 
 // hint while you can complete this with only conditionals based on strings it may help to equate choice to a number 
 
-  
+let computer = Math.random();
+if (computer < .34){
+    computer = "rock";
+} 
+else if (computer < .67){
+    computer = "paper";
+}
+else {
+    computer = "scissors"
+}
+
+function play (user,computer){
+    if (user === computer){
+        console.log("Its a tie");
+    }
+    else if (user === "rock"){
+        if (computer === "paper"){
+            console.log("paper wins!");
+        } 
+        else {
+            console.log("rock wins!");
+        }
+    }
+    else if (user === "paper"){
+        if (computer === "scissors"){
+            console.log("scissors win!");
+        }
+        else {
+            console.log("paper wins!");
+        }
+    }
+    else if (user === "scissors"){
+        if (computer === "rock"){
+            console.log("rock wins!");
+        }
+        else {
+            console.log("scissors win!");
+        }
+    }
+}
+
+play ("scissors",computer);
+
   
 
 /************************************************************** Task 5 **************************************************************/
 //Metric Converter
 //a. KM to Miles - should take the number of kilometers and convert it to the equal number of miles
 
+function kmtomi(km){
+    console.log(km/1.609);
+}
 
-
-
+kmtomi(10)
 
 //b. Feet to CM - should take the number of feet and convert it to the equal number of centimeters
   
+function fttocm(ft){
+    console.log(ft*30.48);
+}
 
+fttocm(4.6)
 
 
 
@@ -82,6 +192,10 @@
 // create a function called annoyingSong
 // the function should take a starting number as an argument and count down - at each iteration it should log (number) bottles of soda on the wall, (number) bottles of soda, take one down pass it around (number left over) bottles of soda on the wall`
   
+for (let i = 99; i > 0;)  {
+    console.log(String(i),"bottles of beer on the wall",String(i),"bottles of beer, take one down pass it around",String(i-1),"bottles of beer on the wall");
+    i = i-1;
+}  
 
 
 
@@ -95,7 +209,25 @@
 //60s should be D 
 //and anything below 60 should be F
   
+function gradeCalc(percent){
+    if (percent >= 90){
+        console.log("Your grade is an A");
+    }
+    else if (percent >= 80){
+        console.log("Your grade is a B");
+    }
+    else if (percent >= 70){
+        console.log("Your grade is a C");
+    }
+    else if (percent >= 60){
+        console.log("Your grade is a D");
+    }
+    else{
+        console.log("Your grade is an F");
+    }
+}
 
+gradeCalc(73)
   
   
 
@@ -113,6 +245,50 @@
 //update your rock papers sissors code below to take a prompt from a user using the window object
 
 
+computer = Math.random();
 
+user = (prompt("rock paper or scissors?"))
+
+if (computer < .34){
+    computer = "rock";
+} 
+else if (computer < .67){
+    computer = "paper";
+}
+else {
+    computer = "scissors"
+}
+
+function play (user,computer){
+    if (user === computer){
+        console.log("Its a tie");
+    }
+    else if (user === "rock"){
+        if (computer === "paper"){
+            console.log("paper wins!");
+        } 
+        else {
+            console.log("rock wins!");
+        }
+    }
+    else if (user === "paper"){
+        if (computer === "scissors"){
+            console.log("scissors win!");
+        }
+        else {
+            console.log("paper wins!");
+        }
+    }
+    else if (user === "scissors"){
+        if (computer === "rock"){
+            console.log("rock wins!");
+        }
+        else {
+            console.log("scissors win!");
+        }
+    }
+}
+
+play (user,computer);
 
 
